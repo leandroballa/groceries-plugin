@@ -1,5 +1,5 @@
 from fastapi import FastAPI, HTTPException
-from typing import List, Optional
+from typing import List, Dict, Union
 
 app = FastAPI()
 
@@ -13,11 +13,12 @@ products = [
             {
                 "colour_id": 1,
                 "colour_code": "CC1",
-                "name": "Red",
+                "colour_name": "Red",
                 "sizes": [
                     {
                         "size_id": 1,
                         "size_code": "S",
+                        "size_name": "Small",
                         "price": 10.0,
                         "barcode": "123456789012"
                     }
@@ -37,8 +38,7 @@ async def create_product(
     style_id: int,
     style_code: str,
     name: str,
-    colours: List[dict],  # List of dictionaries for colors
-    sizes: List[dict]     # List of dictionaries for sizes
+    colours: List[Dict[str, Union[int, str, List[Dict[str, Union[int, str, float, str]]]]]]  # List of dictionaries for colours
 ):
     '''Create a new product'''
     new_product = {
