@@ -47,8 +47,6 @@ async def create_product(
         "name": name,
         "colours": colours,
     }
-    for color in new_product['colours']:
-        color['sizes'] = sizes  # Add sizes to each color
     products.append(new_product)
     return new_product
 
