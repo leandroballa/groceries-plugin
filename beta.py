@@ -70,6 +70,3 @@ class Order(Resource):
     def delete(self, order_id):
         '''Delete an order given its identifier'''
         pass
-
-if __name__ == '__main__':
-    app.run(debug=True)
